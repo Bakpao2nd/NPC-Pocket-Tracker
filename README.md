@@ -1,17 +1,13 @@
-# Beyblade X Launch Lab v5 — Offline PWA
+# Beyblade X Launch Lab v6 — Offline PWA
 
-## Deploy with GitHub Pages
-1. Create a **public** GitHub repository, e.g. `beyblade-launch-lab`.
-2. Upload the **contents of this folder** to the root of the repository (not the folder itself).
-3. In **Settings → Pages**, select **Deploy from a branch**, `main`, `/ (root)`, then Save.
-4. Wait for GitHub to publish, then visit `https://YOUR_USERNAME.github.io/beyblade-launch-lab/`.
-5. Open once while online, then test offline using airplane mode. iPhone: Safari → Share → Add to Home Screen. Android: Chrome → menu → Install app/Add to Home screen.
+1. Export a JSON backup from your existing Launch Lab before updating.
+2. Extract this ZIP and upload **all files and the technique-images folder** into the root of your GitHub Pages repository, replacing index.html, sw.js, and manifest.webmanifest.
+3. Wait for the Pages deployment, open the website online, then close and reopen to confirm the updated v6.
+4. Install/Add to Home Screen and test Airplane Mode. The service worker caches all 20 diagrams for offline use.
+5. Existing data uses the same localStorage key and backup schema as v5. Legacy custom techniques remain readable but can be replaced with a preset.
 
-## Storage and backups
-Data is stored per browser/device using the existing v4 storage key; there is no automatic cross-device synchronization. Use the built-in Export/Import JSON backup feature. If your earlier version was opened from a `file://` URL, its data may not automatically appear on the hosted site: export from the old version and import into the new website.
+### Note on angles
+The PDF establishes names and intended movement. Tilt-degree ranges are experimental coaching starting points inferred from community launch guidance, not documented measurements for these exact cards. Calibrate by bit, stadium and spin.
 
-## Updating
-Replace `index.html` and related files in GitHub. When changing the offline asset set or requiring a fresh cache, update the CACHE_NAME string in `sw.js`. Users should open the website while online to pick up updates. Cached content and local data can be removed by the browser or OS.
-
-## Privacy
-The app has no backend and does not upload your training data. The website source is public on GitHub Pages. This is a fan-made personal training tracker, not affiliated with Beyblade/Takara Tomy/Hasbro.
+### Troubleshooting
+If an old version persists, refresh online and close/reopen the installed app. Avoid clearing browser data unless you have exported a backup.
